@@ -5,6 +5,8 @@ import connectDB from "./config/dbConnection.js";
 dotenv.config();
 connectDB();
 
+const PORT = process.env.PORT || 3000;
+const app = express();
 app.use(
   cors({
     origin: "*",
@@ -12,8 +14,6 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-const PORT = process.env.PORT || 3000;
-const app = express();
 app.listen(PORT, () => {
   console.log(`Server Activated at ${PORT}`);
 });
