@@ -4,6 +4,8 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/dbConnection");
 const vendorRoutes = require("./routes/vendorRoutes");
 const projectRoutes = require("./routes/projectRoutes");
+const employeeRoutes = require("./routes/employeeRoutes.js");
+const orderRoutes = require("./routes/orderRoutes.js");
 
 dotenv.config();
 connectDB();
@@ -24,6 +26,8 @@ app.use(
 
 app.use("/api/vendors", vendorRoutes);
 app.use("/api/projects", projectRoutes);
+app.use("/api/employees", employeeRoutes);
+app.use("/api/orders", orderRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server Activated at ${PORT}`);

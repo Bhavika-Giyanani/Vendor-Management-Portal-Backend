@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-
+const mongoose = require("mongoose");
 const EmployeeSchema = new mongoose.Schema(
   {
     employeeName: {
@@ -13,9 +12,9 @@ const EmployeeSchema = new mongoose.Schema(
       trim: true,
     },
     vendor: {
-      type: String,
-      required: true,
-      trim: true,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Vendor",
+      //   required: true,
     },
     status: {
       type: String,
@@ -27,4 +26,4 @@ const EmployeeSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Employee", EmployeeSchema);
+module.exports = mongoose.model("Employee", EmployeeSchema);
