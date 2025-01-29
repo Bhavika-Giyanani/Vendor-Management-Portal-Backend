@@ -1,12 +1,8 @@
 const mongoose = require("mongoose");
-const EmployeeSchema = new mongoose.Schema(
+
+const ProjectSchema = new mongoose.Schema(
   {
-    employeeName: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    position: {
+    project: {
       type: String,
       required: true,
       trim: true,
@@ -14,7 +10,7 @@ const EmployeeSchema = new mongoose.Schema(
     vendor: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Vendor",
-      //   required: true,
+      required: true,
     },
     status: {
       type: String,
@@ -22,8 +18,13 @@ const EmployeeSchema = new mongoose.Schema(
       enum: ["Active", "On Leave"],
       default: "Active",
     },
+    completion: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Employee", EmployeeSchema);
+module.exports = mongoose.model("Project", ProjectSchema);
