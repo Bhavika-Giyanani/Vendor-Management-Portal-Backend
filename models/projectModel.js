@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const ProjectSchema = new mongoose.Schema(
   {
@@ -8,15 +8,15 @@ const ProjectSchema = new mongoose.Schema(
       trim: true,
     },
     vendor: {
-      type: mongoose.Schema.Types.ObjectId,  // Reference to VendorModel
-      ref: "Vendor",  // The model to reference
+      type: mongoose.Schema.Types.ObjectId, // Reference to VendorModel
+      ref: "Vendor", // The model to reference
       required: true,
     },
     status: {
       type: String,
       required: true,
-      enum: ["Active", "On Leave"],
-      default: "Active",
+      enum: ["Planning", "In Progress", "Completed"],
+      default: "Planning",
     },
     completion: {
       type: Number,
@@ -27,4 +27,4 @@ const ProjectSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Project", ProjectSchema);
+module.exports = mongoose.model("Project", ProjectSchema);

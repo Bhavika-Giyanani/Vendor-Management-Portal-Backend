@@ -3,6 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/dbConnection");
 const vendorRoutes = require("./routes/vendorRoutes");
+const projectRoutes = require("./routes/projectRoutes");
 
 dotenv.config();
 connectDB();
@@ -22,6 +23,7 @@ app.use(
 );
 
 app.use("/api/vendors", vendorRoutes);
+app.use("/api/projects", projectRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server Activated at ${PORT}`);
