@@ -8,7 +8,7 @@ const {
   countActiveOrders,
   getRecentOrders,
   countOrdersFulfilledThisWeek,
-} = require("../controllers/orderController.js");
+} = require("../controllers/orderController.js");  
 
 const router = express.Router();
 
@@ -18,7 +18,7 @@ router.post("/", createOrder);
 // Route to get all orders
 router.get("/", getAllOrders);
 // Route to get the three most recent orders
-router.get("/recent", getRecentOrders);
+router.get("/recent", getRecentOrders); 
 // Route to get a single order by ID
 router.get("/:id", getOrderById);
 

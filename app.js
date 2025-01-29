@@ -7,6 +7,9 @@ const projectRoutes = require("./routes/projectRoutes");
 const employeeRoutes = require("./routes/employeeRoutes.js");
 const orderRoutes = require("./routes/orderRoutes.js");
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger-output.json");
+
 dotenv.config();
 connectDB();
 
@@ -15,6 +18,7 @@ const app = express();
 
 app.use(express.json());
 
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(
   cors({

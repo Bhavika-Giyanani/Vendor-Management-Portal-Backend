@@ -32,4 +32,4 @@ router.delete("/:id", deleteEmployee);
 //^ Count the number of employees hired in the current month
 router.get("/count/hired-this-month", countEmployeesHiredThisMonth);
 
-module.exports = router;
+module.exports = router;   
