@@ -8,8 +8,8 @@ const ProjectSchema = new mongoose.Schema(
       trim: true,
     },
     vendor: {
-      type: mongoose.Schema.Types.ObjectId, // Reference to VendorModel
-      ref: "Vendor", // The model to reference
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Vendor",
       required: true,
     },
     status: {

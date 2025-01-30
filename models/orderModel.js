@@ -8,10 +8,6 @@ const OrderSchema = new mongoose.Schema(
       required: true,
       min: 1,
     },
-    clientName: {
-      type: String,
-      required: true,
-    },
     requiredEmployees: {
       type: Number,
       required: true,

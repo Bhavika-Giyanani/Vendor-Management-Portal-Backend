@@ -11,13 +11,13 @@ const {
 
 const router = express.Router();
 
-router.post("/", createVendor); // Create Vendor
-router.get("/", getVendors); // Get all Vendors
-router.get("/count", getTotalVendors); // Get Total Vendors
-router.get("/change", getVendorChangeThisMonth); // Get vendor change this month
+router.post("/", createVendor);
+router.get("/", getVendors);
+router.get("/count", getTotalVendors);
+router.get("/change", getVendorChangeThisMonth);
 
-router.get("/:id", getVendorById); // Get Vendor by ID
-router.put("/:id", updateVendor); // Update Vendor by ID
-router.delete("/:id", deleteVendor); // Delete Vendor by ID
+router.get("/:id", getVendorById);
+router.put("/:id", updateVendor);
+router.delete("/:id", deleteVendor);
 
 module.exports = router;

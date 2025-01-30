@@ -1,24 +1,32 @@
 const Order = require("../models/orderModel");
 
+//^ Helper function to generate the next orderId
+const generateNextOrderId = async () => {
+  try {
+    const lastOrder = await Order.findOne().sort({ orderId: -1 }).limit(1);
+    if (lastOrder) {
+      return lastOrder.orderId + 1;
+    } else {
+      return 1;
+    }
+  } catch (error) {
+    throw new Error("Error generating next orderId.");
+  }
+};
+
 //^ Create a new order
 const createOrder = async (req, res) => {
   try {
-    const {
-      orderId,
-      clientName,
-      requiredEmployees,
-      techStack,
-      vendor,
-      status,
-    } = req.body;
+    const { requiredEmployees, techStack, vendor, status } = req.body;
 
-    if (!orderId || !clientName || !requiredEmployees || !vendor) {
+    if (!requiredEmployees || !vendor) {
       return res.status(400).json({ message: "All fields are required." });
     }
 
+    const orderId = await generateNextOrderId();
+
     const newOrder = new Order({
       orderId,
-      clientName,
       requiredEmployees,
       techStack,
       vendor,
